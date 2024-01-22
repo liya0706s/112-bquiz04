@@ -13,6 +13,8 @@ $chk=$db->count($_POST);
 if($chk){
     echo $chk;
     $_SESSION[$table]=$_POST['acc'];
+    // 如果 $table 是 "users"，則用戶帳號將被保存在 $_SESSION['users'] 中。
+    // 这使得在整个会话期间可以跟踪用户的登录状态，而无需重复查询数据库。
 }else{
     echo $chk;
 }
