@@ -19,7 +19,7 @@
         // 兩位數的亂數區間
         $a=rand(10,99);
         $b=rand(10,99);
-        // SESSION比一班變數長久,伺服器端客戶看不到
+        // SESSION比一般變數長久放在伺服器端，客戶看不到
         $_SESSION['ans']=$a+$b;
         echo $a . " + " .$b . " =";
         ?>
@@ -33,7 +33,7 @@
 <script>
     // 定義一個名為 login 的函數，它接受一個參數：table (mem和admin)
     function login(table){
-        // 發送一個 GET 請求到 './api/chk_ans.php'
+        // 發送一個 GET 請求到 './api/chk_ans.php' 確認驗證碼
         $.get('./api/chk_ans.php',{ans:$("#ans").val()},(chk)=>{
         // 將 ans 參數設置為 id 為 'ans' 的元素的值
         // chk 是從 chk_ans.php 返回的響應
