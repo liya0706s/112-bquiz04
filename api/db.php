@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB
 {
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db20";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db03";
     // db+抽到的崗位號碼
     // protected $dsn = "mysql:host=localhost;charset=utf8;dbname=bquiz"; //資料庫
     protected $pdo;
@@ -160,5 +160,4 @@ function to($url)
     header("location:$url");
 }
 
-
-?>
+$Bottom = new DB('bottom');
