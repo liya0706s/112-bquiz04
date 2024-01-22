@@ -64,7 +64,9 @@ body
 }
 .all td
 {
-	min-width:100px;
+	/* 2024-01-22 */
+	/* min-width:100px; */
+	min-width:50px;
 	padding:10px;
 }
 .tt

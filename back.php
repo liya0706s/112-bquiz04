@@ -39,7 +39,7 @@
 			if (file_exists($file)) {
 				include $file;
 			} else {
-				include "./back.php/admin.php";
+				include "./back/admin.php";
 			}
 			?>
 		</div>
