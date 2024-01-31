@@ -12,20 +12,37 @@
 </div>
 <!-- table.all>(tr.tt>td+td.ct>button*2)+(tr.tt.ct>td*2) -->
 <table class="all">
-    <tr class="tt">
-        <th>流行皮件</th>
-        <td class="ct">
-            <button>修改</button>
-            <button>刪除</button>
-        </td>
-    </tr>
-    <tr class="pp ct">
-        <td>女用皮件</td>
-        <td>
-            <button>修改</button>
-            <button>刪除</button>
-        </td>
-    </tr>
+    <!-- 先把大分類撈出來 -->
+    <?php
+    $bigs = $Type->all(['big_id' => 0]);
+    foreach ($bigs as $big) {
+    ?>
+        <tr class="tt">
+            <th><?= $big['name']; ?></th>
+            <td class="ct">
+                <button onclick="edit(this,<?= $big['id']; ?>)">修改</button>
+                <!-- 這邊的this，這個點擊button的 html的DOM -->
+                <!-- 比較:$this是jquery的物件 -->
+                <button onclick="del('type',<?= $big['id']; ?>)">刪除</button>
+                <!-- 這邊的type是資料表名 -->
+            </td>
+        </tr>
+        <?php
+        // 撈初衷分類
+        $mids = $Type->all(['big_id' => $big['id']]);
+        foreach ($mids as $mid) {
+        ?>
+            <tr class="pp ct">
+                <td><?= $mid['name']; ?></td>
+                <td>
+                    <button onclick="edit(this,<?= $mid['id']; ?>)">修改</button>
+                    <button onclick="del('type',<?= $mid['id']; ?>)">刪除</button>
+                </td>
+            </tr>
+    <?php
+        }
+    }
+    ?>
 </table>
 
 <script>
