@@ -51,6 +51,21 @@
     // big_id不為零 是中分類
     getTypes(0)
 
+    function edit(dom, id) {
+        // 父類以後的上一個的文字
+        let name = prompt("請輸入你要修改的分類名稱:", `${$(dom).parent().prev().text()}`)
+        if (name != null) {
+            $.post("./api/save_type.php", {
+                name,
+                id
+            }, () => {
+                // 不重整畫面，把剛剛編輯的name內容放在參數寫回去
+                $(dom).parent().prev().text(name);
+                // location.reload();
+            })
+        }
+    }
+
     function getTypes(big_id) {
         $.get("./api/get_types.php", {
             big_id
