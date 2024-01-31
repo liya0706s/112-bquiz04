@@ -8,7 +8,6 @@
         <th class="tt ct">管理</th>
     </tr>
     <?php
-    // 印出所有管理者
     $rows = $Admin->all();
     foreach ($rows as $row) {
     ?>
@@ -17,15 +16,12 @@
             <td class="pp ct"><?= str_repeat("*", strlen($row['pw'])); ?></td>
             <td class="pp ct">
                 <?php
-                // 判斷式不是admin才知道要不要顯示
                 if ($row['acc'] == 'admin') {
                     echo "此帳號為最高權限";
                 } else {
-                    // 用符號代碼取代單引號 &#39;
                     echo "<button onclick='location.href=&#39;?do=edit_admin&id={$row['id']}&#39;'>修改</button>";
                     echo "<button onclick=''>刪除</button>";
                 }
-
                 ?>
             </td>
         </tr>

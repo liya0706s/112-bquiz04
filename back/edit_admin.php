@@ -1,7 +1,7 @@
 <h2 class="ct">修改管理員權限</h2>
 <!-- table.all>tr*3>td.tt.ct+td.pp>input:text -->
 <?php
-// 拿到使用者資料
+// 拿到要修改的使用者資料id
 $row = $Admin->find($_GET['id']);
 // 資料從資料庫中的字串改成陣列 unserialize()
 $pr = unserialize($row['pr']);
