@@ -25,8 +25,8 @@
                 頁尾版權區管理
             </div>
             <div><input type="checkbox" name="pr[]" value="5">
-        
-        </div>
+                最新消息管理
+            </div>
         </td>
     </tr>
 </table>
