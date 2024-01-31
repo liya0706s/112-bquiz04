@@ -54,12 +54,19 @@
     // big要是0
     getTypes('big', 0)
 
+    // 初始化大分類的下拉選單
+    // 呼叫 getTypes 函數，傳遞 'big' 作為類型參數和 0 作為 big_id 參數
     $("#big").on("change", function() {
         getTypes('mid', $("#big").val())
     })
 
+    // 事件監聽器，當大分類下拉選單 (id 為 'big') 的選項發生變化時觸發
+    // 當選擇的大分類改變時，會呼叫 getTypes 函數來更新中分類的下拉選單(id 為 'mid')
+    // $("#big").val() 獲取大分類下拉選單當前選擇的值
     function getTypes(type, big_id) {
-        $.get("./api/get_types.php", {big_id}, (types) => {
+        $.get("./api/get_types.php", {
+            big_id
+        }, (types) => {
             switch (type) {
                 case 'big':
                     $("#big").html(types)
@@ -71,4 +78,11 @@
             }
         })
     }
+
+    // 這是一個自定義的函數 getTypes，用來從伺服器獲取並顯示大分類或中分類的選項。
+    // 它接受兩個參數：type ('big' 或 'mid') 和 big_id (大分類的 id)。
+    // 使用 jQuery 的 $.get 方法從 "./api/get_types.php" 獲取資料，big_id 作為請求參數。
+    // 當伺服器響應後，會根據 type 參數更新對應的下拉選單。
+    // 如果 type 是 'big'，則更新大分類下拉選單並遞迴呼叫 getTypes 來更新中分類選單。
+    // 如果 type 是 'mid'，則僅更新中分類下拉選單。
 </script>
