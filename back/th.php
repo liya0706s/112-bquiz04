@@ -28,7 +28,7 @@
             </td>
         </tr>
         <?php
-        // 撈初衷分類
+        // 撈出中分類
         $mids = $Type->all(['big_id' => $big['id']]);
         foreach ($mids as $mid) {
         ?>
