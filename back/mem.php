@@ -21,8 +21,6 @@
                 <?php
                 echo "<button onclick='location.href=&#39;?do=edit_mem&id={$row['id']}&#39;'>修改</button>";
                 echo "<button onclick='del(&#39;mem&#39;,{$row['id']})'>刪除</button>";
-
-
                 ?>
             </td>
         </tr>
