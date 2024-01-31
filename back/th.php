@@ -75,7 +75,7 @@
         })
     }
 
-    function addType(type) {
+    function addTypes(type) {
         let name
         let big_id;
 
@@ -91,10 +91,7 @@
                 big_id = $("#bigs").val();
                 break;
         }
-        $.post("./api/save_type.php", {
-            name,
-            big_id
-        }, () => {
+        $.post("./api/save_type.php", {name,big_id}, () => {
             location.reload();
         })
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-01-31 08:41:54
+-- 產生時間： 2024-01-31 08:41:47
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.2.12
 
@@ -24,37 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `mem`
+-- 資料表結構 `goods`
 --
 
-CREATE TABLE `mem` (
+CREATE TABLE `goods` (
   `id` int(10) UNSIGNED NOT NULL,
+  `no` text NOT NULL,
   `name` text NOT NULL,
-  `acc` text NOT NULL,
-  `pw` text NOT NULL,
-  `tel` text NOT NULL,
-  `addr` text NOT NULL,
-  `email` text NOT NULL,
-  `regdate` date NOT NULL
+  `price` int(11) NOT NULL,
+  `spec` text NOT NULL,
+  `stock` int(11) NOT NULL,
+  `img` text NOT NULL,
+  `intro` text NOT NULL,
+  `big` int(10) NOT NULL,
+  `mid` int(10) NOT NULL,
+  `sh` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- 傾印資料表的資料 `mem`
---
-
-INSERT INTO `mem` (`id`, `name`, `acc`, `pw`, `tel`, `addr`, `email`, `regdate`) VALUES
-(1, 'mem01', 'mem01', 'mem01', '0925123456', '桃園市', 'mem01@gamail.com', '2024-01-11'),
-(2, 'mem02', 'mem02', 'mem02', '0925123457', '桃園市', 'mem02@gamail.com', '2024-01-10'),
-(3, 'mem03', 'mem03', 'mem03', '123456789', 'taoyuan', 'mem03@gmail.com', '2024-01-31');
 
 --
 -- 已傾印資料表的索引
 --
 
 --
--- 資料表索引 `mem`
+-- 資料表索引 `goods`
 --
-ALTER TABLE `mem`
+ALTER TABLE `goods`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -62,10 +56,10 @@ ALTER TABLE `mem`
 --
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `mem`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `goods`
 --
-ALTER TABLE `mem`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `goods`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
