@@ -53,7 +53,7 @@ $goods = $Goods->find($_GET['id']);
 
         <div>價錢:<?= $goods['price']; ?></div>
         <div>詳細說明:<?= $goods['intro']; ?>...</div>
-        <div>庫存量:<?= $good['stock']; ?></div>
+        <div>庫存量:<?= $goods['stock']; ?></div>
     </div>
 </div>
 <div class="tt ct">
