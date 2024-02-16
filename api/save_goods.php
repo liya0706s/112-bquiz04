@@ -3,7 +3,7 @@ include_once "db.php";
 
 // 檢查是否有上傳圖片
 if(!empty($_FILES['img']['tmp_name'])){
-    $_POST['img']=$_FILES['img']['tmp_name'];
+    $_POST['img']=$_FILES['img']['name'];
     move_uploaded_file($_FILES['img']['tmp_name'],"../img/{$_FILES['img']['name']}");
     // 改為對應上傳檔案的檔名
 }
