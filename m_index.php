@@ -24,9 +24,7 @@
                 <a href="?do=news">最新消息</a> |
                 <a href="?do=look">購物流程</a> |
                 <a href="?do=buycart">購物車</a> |
-
                 <?php
-                // 如果有是使用者
                 if (isset($_SESSION['mem'])) {
                 ?>
                     <a href="./api/logout.php">登出</a> |
@@ -55,23 +53,20 @@
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;">
-                <a href='?type=0'>全部商品(<?= $Goods->count(['sh' => 1]); ?>)</a>
+                <a>全部商品(<?= $Goods->count(['sh' => 1]); ?>)</a>
                 <?php
                 $bigs = $Type->all(['big_id' => 0]);
                 foreach ($bigs as $big) {
                 ?>
                     <div class="ww">
-                        <!-- 大分類名稱和他的數量 -->
-                        <a><?= $big['name']; ?>(<?= $Goods->count(['sh' => 1, 'big' => $big['id']]); ?>)</a>
+                        <a href=""><?= $big['name']; ?>(<?= $Goods->count(['sh' => 1, 'big' => $big['id']]); ?>)</a>
                         <div class="s">
-                            <!-- 判斷這個大分類中有沒有中分類 -->
                             <?php
                             if ($Type->count(["big_id" => $big['id']]) > 0) {
                                 $mids = $Type->all(["big_id" => $big['id']]);
                                 foreach ($mids as $mid) {
                             ?>
-                                    <!-- 中分類的名稱和他的數量 -->
-                                    <a href='?type<?=$mid['id'];?>'><?= $mid['name']; ?>(<?= $Goods->count(['sh' => 1, 'mid' => $mid['id']]); ?>)</a>
+                                    <a href=""><?= $mid['name']; ?>(<?= $Goods->count(['sh' => 1, 'mid' => $mid['id']]) ?>)</a>
                             <?php
                                 }
                             }
