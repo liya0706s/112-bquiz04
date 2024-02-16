@@ -54,9 +54,9 @@ if ($type == 0) {
 
     .info div {
         border: 1px solid #999;
-        border-left: 0;
-        border-top: 0;
-        flex-grow:1;
+        border-left: 0px;
+        border-top: 0px;
+        flex-grow: 1;
     }
 
     .info div:nth-child(1) {
@@ -71,15 +71,18 @@ foreach ($goods as $good) {
 ?>
     <div class="item">
         <div class="img">
-            <img src="./img/<?= $good['img']; ?>" style="width:80%;height:110px">
-        </div>
+        <a href="?do=detail&id=<?= $good['id']; ?>">    
+        <img src="./img/<?= $good['img']; ?>" style="width:80%;height:110px">
+        </a>    
+    </div>
         <div class="info">
             <div class="ct tt"><?= $good['name']; ?></div>
-            <div>價錢:<?= $good['price']; ?>
+            <div>
+                價錢:<?= $good['price']; ?>
         <img src="./icon/0402.jpg" style="float:right">
         </div>
             <div>規格:<?= $good['spec']; ?></div>
-            <div>簡介:<?= mb_substr($good['intro'],0,25); ?></div>
+            <div>簡介:<?= mb_substr($good['intro'], 0, 25); ?></div>
         </div>
     </div>
 <?php
