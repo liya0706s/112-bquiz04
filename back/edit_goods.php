@@ -46,6 +46,8 @@ $goods=$Goods->find($_GET['id']);
         </tr>
     </table>
     <div class="ct">
+        <!-- 藏id給修改商品的分類用 -->
+        <input type="hidden" name="id" value="<?=$goods['id'];?>">
         <input type="submit" value="修改">
         <input type="reset" value="重置">
         <input type="button" value="返回" onclick="location.href='?do=th'">
@@ -72,10 +74,14 @@ $goods=$Goods->find($_GET['id']);
             switch (type) {
                 case 'big':
                     $("#big").html(types)
+                    // 大分類選項勾選
+                    $("#big").val(<?=$goods['big'];?>)
                     getTypes('mid', $("#big").val())
                     break;
                 case 'mid':
                     $("#mid").html(types)
+                    // 小分類選項勾選
+                    $("#mid").val(<?=$goods['mid'];?>)
                     break;
             }
         })
