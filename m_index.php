@@ -25,57 +25,57 @@
                 <a href="?do=look">購物流程</a> |
                 <a href="?do=buycart">購物車</a> |
                 <?php
-                if (isset($_SESSION['mem'])) {
+                if(isset($_SESSION['mem'])){
                 ?>
                     <a href="./api/logout.php">登出</a> |
                 <?php
-                } else {
+                }else{
                 ?>
                     <a href="?do=login">會員登入</a> |
                 <?php
                 }
                 ?>
                 <?php
-                if (isset($_SESSION['admin'])) {
+                if(isset($_SESSION['admin'])){
                 ?>
                     <a href="back.php">返回管理</a>
-                <?php
-                } else {
+                <?php 
+                }else{
                 ?>
                     <a href="?do=admin">管理登入</a>
-                <?php
+                <?php    
                 }
                 ?>
             </div>
             <marquee>
-                年終特賣會開跑了 &nbsp; 情人節特惠活動 &nbsp;
+                年終特賣會開跑了 &nbsp;  情人節特惠活動 &nbsp; 
             </marquee>
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;">
-                <a href='?type=0'>全部商品(<?= $Goods->count(['sh' => 1]); ?>)</a>
-                <?php
-                $bigs = $Type->all(['big_id' => 0]);
-                foreach ($bigs as $big) {
-                ?>
-                    <div class="ww">
-                        <a href="?type=<?= $big['id']; ?>"><?= $big['name']; ?>(<?= $Goods->count(['sh' => 1, 'big' => $big['id']]); ?>)</a>
-                        <div class="s">
-                            <?php
-                            if ($Type->count(["big_id" => $big['id']]) > 0) {
-                                $mids = $Type->all(["big_id" => $big['id']]);
-                                foreach ($mids as $mid) {
-                            ?>
-                                    <a href="?type=<?= $mid['id']; ?>"><?= $mid['name']; ?>(<?= $Goods->count(['sh' => 1, 'mid' => $mid['id']]) ?>)</a>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </div>
-                    </div>
-                <?php
-                }
-                ?>
+            <a href='?type=0'>全部商品(<?=$Goods->count(['sh'=>1]);?>)</a>
+            <?php
+            $bigs=$Type->all(['big_id'=>0]);
+            foreach($bigs as $big){
+            ?>
+            <div class="ww">
+                <a href="?type=<?=$big['id'];?>"><?=$big['name'];?>(<?=$Goods->count(['sh'=>1,'big'=>$big['id']]);?>)</a>
+                <div class="s">
+                    <?php
+                    if($Type->count(["big_id"=>$big['id']])>0){
+                        $mids=$Type->all(["big_id"=>$big['id']]);
+                        foreach($mids as $mid){
+                    ?>
+                        <a href="?type=<?=$mid['id'];?>"><?=$mid['name'];?>(<?=$Goods->count(['sh'=>1,'mid'=>$mid['id']])?>)</a>
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php
+            }
+            ?>
             </div>
             <span>
                 <div>進站總人數</div>
@@ -84,19 +84,19 @@
             </span>
         </div>
         <div id="right">
-
-            <?php
-            $do = $_GET['do'] ?? 'main';
-            $file = "./front/{$do}.php";
-            if (file_exists($file)) {
-                include $file;
-            } else {
-                include "./front/main.php";
-            }
+            
+            <?php 
+                $do=$_GET['do']??'main';
+                $file="./front/{$do}.php";
+                if(file_exists($file)){
+                    include $file;
+                }else{
+                    include "./front/main.php";
+                }
             ?>
         </div>
         <div id="bottom" style="line-height:70px;background:url(icon/bot.png); color:#FFF;" class="ct">
-            <?= $Bottom->find(1)['bottom']; ?></div>
+           <?=$Bottom->find(1)['bottom'];?></div>
     </div>
 </body>
 
