@@ -62,7 +62,7 @@
                 ?>
                     <div class="ww">
                         <!-- 大分類名稱和他的數量 -->
-                        <a><?= $big['name']; ?>(<?= $Goods->count(['sh' => 1, 'big' => $big['id']]); ?>)</a>
+                        <a href="?type=<?=$big['id']; ?>"><?= $big['name']; ?>(<?= $Goods->count(['sh' => 1, 'big' => $big['id']]); ?>)</a>
                         <div class="s">
                             <!-- 判斷這個大分類中有沒有中分類 -->
                             <?php
@@ -71,7 +71,7 @@
                                 foreach ($mids as $mid) {
                             ?>
                                     <!-- 中分類的名稱和他的數量 -->
-                                    <a href='?type<?=$mid['id'];?>'><?= $mid['name']; ?>(<?= $Goods->count(['sh' => 1, 'mid' => $mid['id']]); ?>)</a>
+                                    <a href="?type=<?= $mid['id']; ?>"><?= $mid['name']; ?>(<?= $Goods->count(['sh' => 1, 'mid' => $mid['id']]); ?>)</a>
                             <?php
                                 }
                             }
