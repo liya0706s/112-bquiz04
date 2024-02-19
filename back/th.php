@@ -75,7 +75,7 @@
         })
     }
 
-    function addTypes(type) {
+    function addType(type) {
         let name
         let big_id;
 
