@@ -1,3 +1,4 @@
+<!-- 複製前端購物車 -->
 <h2 class="ct">訂單管理</h2>
 
 <table class="all">
